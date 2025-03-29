@@ -1,0 +1,32 @@
+{
+  "name": "whisperwire",
+  "version": "0.1.0",
+  "description": "Low-latency, real-time audio communication system for live production environments",
+  "main": "index.js",
+  "scripts": {
+    "server": "cd server && npm start",
+    "client": "cd client && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "setup": "bash setup.sh",
+    "test:server": "cd server && npm test",
+    "test:client": "cd client && npm test",
+    "test": "npm run test:server && npm run test:client",
+    "build": "cd client && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/whisperwire.git"
+  },
+  "keywords": [
+    "audio",
+    "communication",
+    "webrtc",
+    "mediasoup",
+    "realtime"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  }
+}

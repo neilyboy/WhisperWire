@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  whisperwire:
+    build: .
+    container_name: whisperwire
+    ports:
+      - "3000:3000"  # Client port
+      - "5000:5000"  # Server port
+    volumes:
+      - ./server/.env:/app/server/.env
+    environment:
+      - NODE_ENV=production
+      # Use the server's IP address instead of localhost
+      - REACT_APP_API_URL=http://${SERVER_IP:-localhost}:5000/api
+      - REACT_APP_SOCKET_URL=http://${SERVER_IP:-localhost}:5000
+      # For MediaSoup to announce the correct IP
+      - MEDIASOUP_ANNOUNCED_IP=${SERVER_IP:-127.0.0.1}
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:5000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
