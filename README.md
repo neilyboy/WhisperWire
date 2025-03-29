@@ -2,7 +2,9 @@
 
 WhisperWire is a low-latency, real-time audio communication system designed for live production environments. It provides a robust server-side application and a user-friendly, mobile-optimized client interface.
 
-![WhisperWire Login Screen](docs/images/login-screen.png)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/9c33069f-0138-4c10-9e83-0cf96ba4f936" alt="whisperwire">
+</p>
 
 ## Features
 
